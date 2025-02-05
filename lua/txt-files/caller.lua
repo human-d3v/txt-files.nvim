@@ -34,3 +34,5 @@ function M.GetDefOrSyn(selection)
 	local ui = require('txt-files.ui')
 	ui.CreateFloatingWindow(word_object, header, selection)
 end
+
+return M
