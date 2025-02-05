@@ -1,7 +1,7 @@
 local M = {}
 
 function M.MakeCall(word)
-	local cmd = '~/.local/share/nvim/lazy/txt-files.nvim/api-caller/dict-api ' .. word
+	local cmd = '~/.local/share/nvim/lazy/txt-files.nvim/api-caller/dict-api --word ' .. word
 	local handle = io.popen(cmd,"w")
 	if handle == nil then
 		return error("error in making api call")
