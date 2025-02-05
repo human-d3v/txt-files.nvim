@@ -3,7 +3,6 @@ export interface PhoneticObject {
 	audio: string;
 }
 
-
 export interface DefinitionObject {
 	definition: string;
 	example: string;
