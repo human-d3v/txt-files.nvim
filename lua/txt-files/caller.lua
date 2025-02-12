@@ -28,7 +28,7 @@ function M.GetDefOrSyn(selection)
 	if not word_object_string then
 		return nil, "error in making api call"
 	end
-	local table_func, err = load("return " .. '"' .. word_object_string .. '"')
+	local table_func, err = load("return " .. '[[' .. word_object_string .. ']]')
 	if table_func == nil then
 		return  error("error in building table object: " .. err)
 	end
