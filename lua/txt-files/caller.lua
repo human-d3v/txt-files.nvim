@@ -28,13 +28,13 @@ function M.GetDefOrSyn(selection)
 	if not word_object_string then
 		return nil, "error in making api call"
 	end
-	local table_func, err = load("return " .. '[[' .. word_object_string .. ']]')
+	local table_func, err = load("return " ..  word_object_string )
 	if table_func == nil then
 		return  nil, "error in building table object: " .. err
 	end
 
 	local success, word_object = pcall(table_func) -- returns table
-	print("table object " .. word_object.def)
+	print("table object " .. word_object)
 	if not success then
     return nil, "error in making table object" .. word_object
   end
