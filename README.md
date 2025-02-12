@@ -1,6 +1,19 @@
 # Text File Handling in Neovim 
-This plugin won't be for everyone. It compiles a simple typescript binary that
+This plugin won't be for everyone. I work a lot with text files for my work,
+and I've compiled my most useful shortcuts into a plugin. This includes a
+simple implementation of a dictionary lookup using typescript and other things
+like wordcount. 
+
+It utilizes [bun](https://bun.sh) to compile a simple typescript binary that
 accepts a word as an argument and returns a string representing a Lua Table. 
+
+## Dependencies
+- bun
+- Neovim 0.9.0+
+
+```bash
+curl -fsSL https://bun.sh/install | bash
+```
 
 It adds the following keymaps by default:
 | Mode | Keymap | Description |
