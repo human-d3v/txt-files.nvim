@@ -14,14 +14,14 @@ function M.setup(opts)
 		pattern = {'txt', 'text'},
 		callback = function()
 			vim.schedule(function()
-				vim.keymap.set('n', '<leader>br', function() funcs.linebreak() end,
+				vim.keymap.set('n', '<leader>br', function() funcs.LineBreak() end,
 					keymap_opts)
-				vim.keymap.set("v", "<leader>wc", function() funcs.wordcount() end,
+				vim.keymap.set("v", "<leader>wc", function() funcs.WordCount() end,
 					keymap_opts)
 				vim.keymap.set("v", "<leader>def", function()
-					caller.getdeforsyn('def') end, keymap_opts)
+					caller.GetDefOrSyn('def') end, keymap_opts)
 				vim.keymap.set("v", "<leader>syn", function()
-					caller.getdeforsyn('syn') end, keymap_opts)
+					caller.GetDefOrSyn('syn') end, keymap_opts)
 				vim.opt_local.spell = true
 			end)
 		end
