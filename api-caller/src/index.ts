@@ -37,7 +37,7 @@ function luaTableFromResponse(resp:ResponseObject):LuaTable {
 function luaTableStringFromObject(t:LuaTable):string { 
 	let defStr:string = "{'" + t.def.join("','") + "'}";
 	let synStr:string = "{'" + t.syn.join("','") + "'}";
-	return '{"word"="' + t.word + '", "def"=' + defStr + ',"syn"=' + synStr + '}';
+	return '{word="' + t.word + '", def=' + defStr + ',syn=' + synStr + '}';
 } // outputs a string '{"word"="", "def"={}, "syn"={}}'
 
 
