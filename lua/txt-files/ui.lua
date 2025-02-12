@@ -10,7 +10,6 @@ end
 
 function M.renderBody(obj, selection)
 	local definitions = obj.def
-	print(obj.def)
 	local synonyms = obj.syn
 	local lines = {}
 	if selection == 'def' then
