@@ -30,7 +30,7 @@ function M.GetDefOrSyn(selection)
 	end
 	local table_func, err = load("return " .. word_object_string)
 	if table_func == nil then
-		return nil, "error in building table object"
+		return  error("error in building table object: " .. err)
 	end
 
 	local success, word_object = pcall(table_func) -- returns table
@@ -39,7 +39,7 @@ function M.GetDefOrSyn(selection)
     return nil, "error in making table object" .. word_object
   end
 
-	local ui, err = pcall(require('txt-files.ui'))
+	local ui = require('txt-files.ui')
 	if ui == nil then
 		return nil, "error loading ui module " .. err
 	end
