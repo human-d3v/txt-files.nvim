@@ -10,18 +10,18 @@ function M.setup(opts)
 		return
 	end
 	local keymap_opts = {noremap = true, silent = true}
-	vim.api.nvim_create_autocmd('FileType', {
+	vim.api.nvim_create_autocmd('filetype', {
 		pattern = {'txt', 'text'},
 		callback = function()
 			vim.schedule(function()
-				vim.keymap.set('n', '<leader>br>', function() require('txt-files.funcs').LineBreak() end,
+				vim.keymap.set('n', '<leader>br>', function() funcs.linebreak() end,
 					keymap_opts)
-				vim.keymap.set("v", "<leader>wc", function() funcs.WordCount() end,
+				vim.keymap.set("v", "<leader>wc", function() funcs.wordcount() end,
 					keymap_opts)
 				vim.keymap.set("v", "<leader>def", function()
-					caller.GetDefOrSyn('def') end, keymap_opts)
+					caller.getdeforsyn('def') end, keymap_opts)
 				vim.keymap.set("v", "<leader>syn", function()
-					caller.GetDefOrSyn('syn') end, keymap_opts)
+					caller.getdeforsyn('syn') end, keymap_opts)
 				vim.opt_local.spell = true
 			end)
 		end
