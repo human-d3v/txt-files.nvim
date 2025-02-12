@@ -24,6 +24,7 @@ function M.GetDefOrSyn(selection)
 	vim.cmd('normal! gv"xy')
 	local word = vim.fn.getreg('x')
 	word = string.gsub(word, '\n', "") --strip newline
+	print("word is: " .. word)
 	local word_object_string = M.MakeCall(word) -- returns string
 	print("string returned from typescript" .. word_object_string)
 	if not word_object_string then

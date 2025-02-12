@@ -14,7 +14,7 @@ function M.setup(opts)
 		pattern = {'txt', 'text'},
 		callback = function()
 			vim.schedule(function()
-				vim.keymap.set('n', '<leader>br>', function() funcs.LineBreak() end, 
+				vim.keymap.set('n', '<leader>br>', function() funcs.LineBreak() end,
 					keymap_opts)
 				vim.keymap.set("v", "<leader>wc", function() funcs.WordCount() end,
 					keymap_opts)
