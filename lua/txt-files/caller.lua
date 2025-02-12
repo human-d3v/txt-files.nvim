@@ -25,12 +25,20 @@ function M.GetDefOrSyn(selection)
 	local word = vim.fn.getreg('x')
 	word = string.gsub(word, '\n', "") --strip newline
 	local word_object_string = M.MakeCall(word) -- returns string
-	local table_func = load("return " .. word_object_string) 
-	if table_func == nil then
-		return error("error in building table object")
+	if not word_object_string then
+		return nil, "error in making api call"
 	end
-	local word_object = table_func() -- returns table
-	
+	local table_func, err = load("return " .. word_object_string)
+	if table_func == nil then
+		return nil, "error in building table object"
+	end
+
+	local success, word_object = pcall(table_func) -- returns table
+
+	if not success then
+    return nil, "error in making table object" .. word_object
+  end
+
 	local ui = require('txt-files.ui')
 	ui.CreateFloatingWindow(word_object, header, selection)
 end
