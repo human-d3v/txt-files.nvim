@@ -30,7 +30,7 @@ function M.GetDefOrSyn(selection)
 	end
 	local table_func, err = load("return " .. '[[' .. word_object_string .. ']]')
 	if table_func == nil then
-		return  error("error in building table object: " .. err)
+		return  nil, "error in building table object: " .. err
 	end
 
 	local success, word_object = pcall(table_func) -- returns table
