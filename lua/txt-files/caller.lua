@@ -2,16 +2,16 @@ local M = {}
 
 function M.MakeCall(word)
 	local cmd = '~/.local/share/nvim/lazy/txt-files.nvim/api-caller/dict-api --word ' .. word
-	local handle = io.popen(cmd,"w")
+	local handle = io.popen(cmd, "r")
 	if handle == nil then
-		return error("error in making api call")
+		return nil, "error in making api call"
 	end
 	local result = handle:read("*a")
 	if result == nil then
-		return error("error in reading api call result")
+		return nil, "error in reading api call result"
 	end
 	handle:close()
-	return result 
+	return result
 	-- returns a string representing an object 
 	--{'word'=<wd>, 'def'=[<def1>, <def2>, ...], 'syn'=[<syn1>, <syn2>, ...]}
 end
