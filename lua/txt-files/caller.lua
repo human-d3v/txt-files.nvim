@@ -25,6 +25,7 @@ function M.GetDefOrSyn(selection)
 	local word = vim.fn.getreg('x')
 	word = string.gsub(word, '\n', "") --strip newline
 	local word_object_string = M.MakeCall(word) -- returns string
+	print("string returned from typescript" .. word_object_string)
 	if not word_object_string then
 		return nil, "error in making api call"
 	end
@@ -34,12 +35,15 @@ function M.GetDefOrSyn(selection)
 	end
 
 	local success, word_object = pcall(table_func) -- returns table
-
+	print("table object" .. word_object)
 	if not success then
     return nil, "error in making table object" .. word_object
   end
 
-	local ui = require('txt-files.ui')
+	local ui, err = pcall(require('txt-files.ui'))
+	if ui == nil then
+		return nill, "error loading ui module " .. err
+	end
 	ui.CreateFloatingWindow(word_object, header, selection)
 end
 
