@@ -38,7 +38,7 @@ function M.CreateFloatingWindow(word_object, header, selection)
 	local row = math.ceil((window_height - float_height) / 2)
 	--set opts
 	local ui_opts = {
-		relative = 'editor', 
+		relative = 'editor',
 		width = float_width,
 		height = float_height,
 		col = col,
@@ -61,10 +61,10 @@ function M.CreateFloatingWindow(word_object, header, selection)
 	-- create separator
 	local header_separator = M.renderTitleSeparator(float_width)
 	local body = M.renderBody(word_object, selection)
-	vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, 
+	vim.api.nvim_buf_set_lines(bufnr, 0, -1, false,
 		{header, header_separator, word_object.word, unpack(body)}
 	)
-	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'q', '<cmd>bd!<CR>' {noremap=true, 
+	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'q', '<cmd>bd!<CR>', {noremap=true,
 		silent=true}
 	)
 end
