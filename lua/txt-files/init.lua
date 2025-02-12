@@ -18,7 +18,7 @@ function M.setup(opts)
 					keymap_opts)
 				vim.keymap.set("v", "<leader>wc", function() funcs.WordCount() end,
 					keymap_opts)
-				vim.keymap.set("v", "<leader>def", function() 
+				vim.keymap.set("v", "<leader>def", function()
 					caller.GetDefOrSyn('def') end, keymap_opts) 
 				vim.keymap.set("v", "<leader>syn", function()
 					caller.GetDefOrSyn('syn') end, keymap_opts)
